@@ -1,0 +1,304 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+:is(ul, ol) {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* Avoid orphans on paragraphs */
+p {
+    text-wrap: pretty;
+}
+
+
+a {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Overpass';
+    src: url('assets/fonts/Overpass-Regular.woff2') format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Overpass';
+    src: url('assets/fonts/Overpass-Bold.woff2') format("woff2");
+    font-weight: 700;
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS */
+
+    --clr-orange: hsl(25, 97%, 53%); /* #FC7614 */
+    --clr-dark-blue: hsl(213, 19%, 18%); /* #262E38 */
+    --clr-very-dark-blue: hsl(216, 12%, 8%); /* 131518 */
+    --clr-white: hsl(0, 100%, 100%); /* FFF */
+    --clr-light-grey: hsl(217, 12%, 63%); /* 969FAD */
+    --clr-medium-grey: hsl(216, 12%, 54%); /* #7C8798 */
+
+    --clr-gradient-1: hsl(215, 20%, 17%); /* #232A34 */
+    --clr-gradient-2: hsl(216, 24%, 12%); /* #181E27 */
+
+    /* TYPOGRAPHY */
+
+    --ff-primary: 'Overpass', sans-serif;
+    --fs-large: 1.5rem; /* 24px */
+    --fs-extra-large: 1.75rem; /* 28px */
+    --fw-400: 400;
+    --fw-700: 700;
+    --ls-100: 0.0125;
+    --ls-200: .125rem;
+    --lh: 1.5;
+
+    --spacing-100: .625rem; /* 10px */
+    --spacing-200: 1rem; /* 16px */
+    --spacing-300: 1.5rem; /* 24px */
+    --spacing-400: 2rem; /* 32px */
+    --spacing-500: 2.25rem; /* 36px */
+    --spacing-600: 2.8rem; /* 45px */
+
+    --inline-padding: 1.5rem; /* 24px */
+    --btn-inline-padding: 6.75rem;
+
+   @media (width > 50rem) {
+    --btn-inline-padding: 8.5rem;
+   }
+
+   --flow-spacer: 1.5rem;
+}
+
+/* UTILITIES */
+
+.visually-hidden:not(:focus):not(.active) {
+    clip-path: inset(50%);
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+}
+
+.flow {
+    --flow-space: var(--flow-spacer);
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, 1rem);
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/* GENERAL STYLING */
+
+body {
+    padding: var(--inline-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    background-color: var(--clr-very-dark-blue);
+    color: var(--clr-light-grey);
+    font-family: var(--ff-primary);
+}
+
+/* CARD STYLES */
+
+.card {
+    background: linear-gradient(var(--clr-gradient-1), var(--clr-gradient-2));
+    border-radius: 24px;
+    padding-inline: var(--inline-padding);
+    max-width: 25rem;
+
+    @media (width > 50rem) {
+        --inline-padding: 2rem;
+    }
+}
+
+.card__heading {
+    color: var(--clr-white);
+    font-size: var(--fs-large);
+
+    @media (width > 50rem) {
+        font-size: var(--fs-extra-large);
+    }
+}
+
+.card__paragraph {
+    --flow-space: var(--spacing-100);
+    line-height: var(--lh);
+
+    @media (width > 50rem) {
+        --flow-space: var(--spacing-200);
+    }
+}
+
+/* RATING CARD */
+
+.rating-card {
+    padding-block-start: var(--spacing-300);
+    padding-block-end: var(--spacing-400);
+
+    @media (width > 50rem) {
+        padding-block-start: var(--spacing-400);
+    }
+}
+
+.rating-card__image-wrapper {
+    display: inline-block;
+    background-color: var(--clr-dark-blue);
+    padding: .75rem;
+    border-radius: 50%;
+
+    @media (width > 50rem) {
+        padding: 1rem;
+    }
+}
+
+.rating-card__heading {
+    --flow-space: var(--spacing-200);
+
+    @media (width > 50rem) {
+        --flow-space: var(--spacing-400);
+    }
+}
+
+input[type="radio"] {
+    appearance: none;
+    background-color: var(--clr-dark-blue);
+    padding: 1rem;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: var(--clr-orange);
+        transition: .2s;
+    }
+}
+
+.btn {
+    --btn-bg: var(--clr-orange);
+    --btn-text: var(--clr-white);
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-200);
+    font-weight: var(--fw-700);
+    cursor: pointer;
+    border: none;
+    border-radius: 24px;
+    padding-block: .75rem;
+    padding-inline: var(--btn-inline-padding);
+
+    &:is(:hover, :focus-visible) {
+        --btn-bg: var(--clr-white);
+        --btn-text: var(--clr-orange);
+        transition: .2s;
+    }
+
+    @media (width > 50rem) {
+        --flow-space: var(--spacing-400);
+    }
+}
+
+
+/* CONFIRMATION CARD */
+
+.confirmation-card {
+    display: none;
+    text-align: center;
+    padding-block: var(--spacing-500);
+
+    @media (width > 50rem) {
+        padding-block: var(--spacing-600);
+    }
+}
+
+.confirmation-card__image {
+    margin-inline: auto;
+}
+
+.confirmation-card__heading {
+    --flow-space: var(--spacing-300);
+
+    @media (width > 50rem) {
+        --flow-space: var(--spacing-400);
+    }
+}
+
+.confirmation-card__selection {
+    --flow-space: var(--spacing-300);
+
+    @media (width > 50rem) {
+        --flow-space: var(--spacing-400);
+    }
+}
+
