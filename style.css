@@ -120,6 +120,7 @@ textarea:not([rows]) {
     --spacing-500: 2.25rem; /* 36px */
     --spacing-600: 2.8rem; /* 45px */
 
+
     --inline-padding: 1.5rem; /* 24px */
     --btn-inline-padding: 6.75rem;
 
@@ -234,13 +235,18 @@ body {
 
 input[type="radio"] {
     appearance: none;
-    background-color: var(--clr-dark-blue);
-    padding: 1rem;
-    border-radius: 50%;
+    /* background-color: var(--clr-dark-blue);
+    padding: 20px;
+    border-radius: 50%; */
+    margin: 0;
 
     &:hover {
         background-color: var(--clr-orange);
         transition: .2s;
+    }
+
+    @media (width > 50rem) {
+        /* padding: 16px; */
     }
 }
 
@@ -302,3 +308,37 @@ input[type="radio"] {
     }
 }
 
+fieldset {
+    border: transparent;
+    display: flex;
+    gap: var(--spacing-200);
+
+    @media (width > 50rem) {
+        gap: var(--spacing-300);
+        gap: 1.25rem;
+    }
+}
+
+.test {
+    width: fit-content;
+    background-color: var(--clr-dark-blue);
+    padding: var(--spacing-300);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &:is(:hover) {
+       background-color: var(--clr-medium-grey); 
+       color: var(--clr-white);
+       transition: .2s;
+    }
+}
+
+.test:has(:hover) {
+   .test:not(:has(:hover)) {
+    background-color: red;
+   }
+}
