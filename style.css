@@ -178,7 +178,7 @@ body {
     background: linear-gradient(var(--clr-gradient-1), var(--clr-gradient-2));
     border-radius: 24px;
     padding-inline: var(--inline-padding);
-    max-width: 25rem;
+    max-width: 26rem;
 
     @media (width > 50rem) {
         --inline-padding: 2rem;
@@ -312,6 +312,7 @@ fieldset {
     border: transparent;
     display: flex;
     gap: var(--spacing-200);
+    padding: 0;
 
     @media (width > 50rem) {
         gap: var(--spacing-300);
@@ -329,6 +330,7 @@ fieldset {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    cursor: pointer;
 
     &:is(:hover) {
        background-color: var(--clr-medium-grey); 
