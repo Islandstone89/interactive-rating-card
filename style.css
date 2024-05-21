@@ -151,9 +151,6 @@ textarea:not([rows]) {
     margin-block-start: var(--flow-space, 1rem);
 }
 
-.show {
-    display: block;
-}
 
 .hide {
     display: none;
@@ -179,10 +176,11 @@ body {
     background: linear-gradient(var(--clr-gradient-1), var(--clr-gradient-2));
     border-radius: 24px;
     padding-inline: var(--inline-padding);
-    max-width: 26rem;
+    max-width: 21rem;
 
     @media (width > 50rem) {
         --inline-padding: 2rem;
+        max-width: 25rem;
     }
 }
 
@@ -198,6 +196,7 @@ body {
 .card__paragraph {
     --flow-space: var(--spacing-100);
     line-height: var(--lh);
+    max-width: 35ch;
 
     @media (width > 50rem) {
         --flow-space: var(--spacing-200);
@@ -286,7 +285,6 @@ input[type="radio"] {
 /* CONFIRMATION CARD */
 
 .confirmation-card {
-    /* display: none; */
     text-align: center;
     padding-block: var(--spacing-500);
 
@@ -330,12 +328,13 @@ fieldset {
 label {
     width: .4rem;
     height: 1.5rem;
+    font-weight: var(--fw-700);
 }
 
 .test {
-    width: fit-content;
     background-color: var(--clr-dark-blue);
-    padding: var(--spacing-500);
+    padding-block: var(--spacing-100);
+    padding-inline: var(--spacing-200);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -349,6 +348,11 @@ label {
        background-color: var(--clr-medium-grey); 
        color: var(--clr-white);
        transition: .2s;
+    }
+
+    @media (width > 50rem) {
+        padding-block: var(--spacing-200);
+        padding-inline: var(--spacing-300);
     }
 }
 
