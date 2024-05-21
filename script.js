@@ -35,9 +35,6 @@ function confirmation (e) {
     ratingCard.classList.toggle("hide");
     confirmationCard.classList.toggle("hide");
 
-
-    defaultScore = 100;
-    
     selectionMessage.textContent = `You have selected ${defaultScore} out of 5`;
 }
 
