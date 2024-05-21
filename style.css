@@ -156,6 +156,8 @@ textarea:not([rows]) {
     display: none;
 }
 
+
+
 /* GENERAL STYLING */
 
 body {
@@ -233,27 +235,11 @@ body {
     }
 }
 
-input[type="radio"] {
+.rating-btn {
     appearance: none;
-    /* background-color: var(--clr-dark-blue);
-    padding: 20px;
-    border-radius: 50%; */
     margin: 0;
-
-    &:hover {
-        background-color: var(--clr-orange);
-        transition: .2s;
-    }
-
-    @media (width > 50rem) {
-        /* padding: 16px; */
-    }
 }
 
-
-/* input:checked {
-    outline: 5px solid red;
-} */
 
 
 .btn {
@@ -273,7 +259,6 @@ input[type="radio"] {
     &:is(:hover, :focus-visible) {
         --btn-bg: var(--clr-white);
         --btn-text: var(--clr-orange);
-        transition: .2s;
     }
 
     @media (width > 50rem) {
@@ -331,7 +316,7 @@ label {
     font-weight: var(--fw-700);
 }
 
-.test {
+.rating-btn-wrapper {
     background-color: var(--clr-dark-blue);
     padding-block: var(--spacing-100);
     padding-inline: var(--spacing-200);
@@ -345,9 +330,8 @@ label {
     aspect-ratio: 1 / 1;
 
     &:is(:hover) {
-       background-color: var(--clr-medium-grey); 
+       background-color: var(--clr-orange); 
        color: var(--clr-white);
-       transition: .2s;
     }
 
     @media (width > 50rem) {
@@ -356,8 +340,7 @@ label {
     }
 }
 
-.test:has(:hover) {
-   .test:not(:has(:hover)) {
-    background-color: red;
-   }
+.rating-btn-wrapper.active {
+    background-color: var(--clr-medium-grey);
+    color: var(--clr-white);
 }
