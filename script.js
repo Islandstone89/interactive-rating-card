@@ -33,17 +33,21 @@ function confirmation(e) {
 form.addEventListener("submit", confirmation);
 
 
+  /* Create function that toggles active class and changed default score */
+  function ratingBtnClicked(e) {
 
-function ratingBtnClicked(e) {
+    if (e.target.classList.contains("active")) {
+        ratingButtons.forEach((button) => button.classList.remove("active"));  
+    } else {
+        ratingButtons.forEach((button) => button.classList.remove("active"));
+        this.classList.toggle("active");
+    }
 
-    if (e.target.classList.contains("rating-btn-wrapper")) {
-        e.target.classList.toggle("active");
-
-        defaultScore = e.target.dataset.value;
-    } 
+    defaultScore = e.target.dataset.value;
 }
 
-
+/* Loop through each of the buttons and add Event Listener */
 ratingButtons.forEach((ratingBtn) => {
     ratingBtn.addEventListener("click", ratingBtnClicked)
 })
+
