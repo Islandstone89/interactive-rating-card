@@ -10,7 +10,7 @@ let form = document.querySelector(".form");
 
 /* Select the radio buttons */
 
-let ratingButtons = document.querySelectorAll(".rating-btn-wrapper");
+let ratingButtons = document.querySelectorAll(".rating-btn-wrapper input");
 
 /* Select the selection paragraph */
 let selectionMessage = document.querySelector(".confirmation-card__selection");
@@ -34,7 +34,7 @@ form.addEventListener("submit", confirmation);
 
 
   /* Create function that toggles active class and changed default score */
-  function ratingBtnClicked(e) {
+/*   function ratingBtnClicked(e) {
 
     if (e.target.classList.contains("active")) {
         ratingButtons.forEach((button) => button.classList.remove("active"));  
@@ -44,10 +44,21 @@ form.addEventListener("submit", confirmation);
     }
 
     defaultScore = e.target.dataset.value;
+} */
+
+
+/* Updated function that gets the value from the input */
+function ratingBtnClicked(e) {
+    ratingButtons.forEach((button) => button.parentElement.classList.remove("active"));
+    this.parentElement.classList.add("active");
+
+    defaultScore = this.value;
 }
+
 
 /* Loop through each of the buttons and add Event Listener */
 ratingButtons.forEach((ratingBtn) => {
     ratingBtn.addEventListener("click", ratingBtnClicked)
 })
+
 
