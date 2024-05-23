@@ -10,7 +10,7 @@ let form = document.querySelector(".form");
 
 /* Select the radio buttons */
 
-let ratingButtons = document.querySelectorAll(".rating-btn-wrapper input");
+let ratingButtons = document.querySelectorAll(".rating-btn");
 
 /* Select the selection paragraph */
 let selectionMessage = document.querySelector(".confirmation-card__selection");
@@ -48,7 +48,7 @@ form.addEventListener("submit", confirmation);
 
 
 /* Updated function that gets the value from the input */
-function ratingBtnClicked(e) {
+function ratingBtnClicked() {
     ratingButtons.forEach((button) => button.parentElement.classList.remove("active"));
     this.parentElement.classList.add("active");
 
