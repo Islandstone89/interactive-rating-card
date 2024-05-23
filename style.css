@@ -318,15 +318,14 @@ label {
 
 .rating-btn-wrapper {
     background-color: var(--clr-dark-blue);
-    padding-block: var(--spacing-200);
-    padding-inline: var(--spacing-300);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
+
+    height: 45px;
+    width: 45px;
 
     &:is(:hover) {
        background-color: var(--clr-orange); 
